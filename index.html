@@ -7,19 +7,10 @@
     <link rel="stylesheet" href="style.css" />
   </head>
   <body>
-    
-
     <div class="container">
       <div class="app-container">
         <div class="grid-container">
-          <div id="timer" class="box1">
-            <div class="op-container">
-              
-              <button>25</button>
-              <button>25</button>
-              <button>25</button>
-            </div>
-          </div>
+          <div id="timer" class="box1"></div>
           <div class="box2">
             <button id="timerbtn">start</button>
           </div>
@@ -32,6 +23,10 @@
     </div>
     <div class="theme-container">
       <button id="theme-toggle">Toggle Theme</button>
+      <button class="timeSelector" data-minutes="15">15:00</button>
+      <button class="timeSelector" data-minutes="25">25:00</button>
+      <button class="timeSelector" data-minutes="45">45:00</button>
+      <div id="sessioncounter">Count:</div>
     </div>
     <script src="app.js"></script>
   </body>

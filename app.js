@@ -4,23 +4,19 @@ addEventListener("DOMContentLoaded", () => {
   const breakTimerBtn = document.getElementById("breakbtn");
   const breakTimerDisplay = document.getElementById("breaktimer");
   const toggleThemeBtn = document.getElementById("theme-toggle");
+  const minSel = document.querySelectorAll(".timeSelector");
+  const sessionCountDisplay = document.getElementById("sessioncounter");
 
   const timerBell = new Audio("bell.mp3");
-  let count = 0;
 
   //timer logic
   let minutes = 0;
   let seconds = 10;
   let timer = null;
-  let break_min = 0;
-  let break_sec = 10;
+  let break_min = 5;
+  let break_sec = 0;
   let b_timer = null;
-
-  timerDisplay.addEventListener("click", (e) => {
-    if ((e.target.tagName = "DIV")) {
-      console.log("div clicked");
-    }
-  });
+  let s_count = 0;
 
   function renderTime() {
     let m = minutes.toString().padStart(2, "0");
@@ -36,8 +32,8 @@ addEventListener("DOMContentLoaded", () => {
 
   function startTimer() {
     if (startTimerBtn.textContent === "restart") {
-      minutes = 0;
-      seconds = 10;
+      minutes = 25;
+      seconds = 0;
     }
 
     if (b_timer) {
@@ -56,6 +52,7 @@ addEventListener("DOMContentLoaded", () => {
           timer = null;
           alert("pomodoro complete");
           startTimerBtn.textContent = "restart";
+          startBreakTimer();
           return;
         }
         minutes--;
@@ -79,16 +76,20 @@ addEventListener("DOMContentLoaded", () => {
       clearInterval(timer);
       if (break_sec === 0) {
         if (break_min === 0) {
-          playBell();
+          playBell;
           clearInterval(b_timer);
           b_timer = null;
           alert("break finished");
           if (minutes === 0 && seconds === 0) {
             alert("session completed");
+            s_count += 1;
+            console.log(s_count);
+            sessionCountDisplay.innerHTML = `Counter:${s_count}`;
+
             minutes = 0;
             seconds = 10;
             break_min = 0;
-            break_sec = 10;
+            break_sec = 15;
             renderB_Time();
             renderTime();
             startTimerBtn.textContent = "start";
@@ -126,4 +127,16 @@ addEventListener("DOMContentLoaded", () => {
   renderB_Time();
 
   toggleThemeBtn.addEventListener("click", changeTheme);
+
+  // logic to set min in the timer
+  minSel.forEach((button) => {
+    button.addEventListener("click", () => {
+      const min = parseInt(button.dataset.minutes);
+      console.log(min);
+      minutes = min;
+      seconds = 0;
+      renderTime();
+      console.log(`timer set to ${min}`);
+    });
+  });
 });

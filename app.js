@@ -13,8 +13,8 @@ addEventListener("DOMContentLoaded", () => {
   let minutes = 0;
   let seconds = 10;
   let timer = null;
-  let break_min = 5;
-  let break_sec = 0;
+  let break_min = 0;
+  let break_sec = 10;
   let b_timer = null;
   let s_count = 0;
 
@@ -31,9 +31,20 @@ addEventListener("DOMContentLoaded", () => {
   }
 
   function startTimer() {
-    if (startTimerBtn.textContent === "restart") {
-      minutes = 25;
-      seconds = 0;
+    if (startTimerBtn.textContent === "start") {
+      startTimerBtn.textContent = "pause";
+      timer = null;
+    } else if (startTimerBtn.textContent === "pause") {
+      startTimerBtn.textContent = "start";
+      clearInterval(timer);
+    } else if (startTimerBtn.textContent === "restart") {
+      startTimerBtn.textContent = "pause";
+      minutes = 0;
+      seconds = 10;
+      break_min = 0;
+      break_sec = 10;
+      renderB_Time();
+      renderTime();
     }
 
     if (b_timer) {
@@ -52,6 +63,21 @@ addEventListener("DOMContentLoaded", () => {
           timer = null;
           alert("pomodoro complete");
           startTimerBtn.textContent = "restart";
+
+          if (break_min === 0 && break_sec === 0) {
+            alert("session completed");
+            s_count += 1;
+            console.log(s_count);
+            sessionCountDisplay.innerHTML = `Counter:${s_count}`;
+            minutes = 0;
+            seconds = 10;
+            break_min = 0;
+            break_sec = 10;
+            renderB_Time();
+            renderTime();
+            startTimerBtn.textContent = "start";
+          }
+
           startBreakTimer();
           return;
         }
@@ -68,6 +94,7 @@ addEventListener("DOMContentLoaded", () => {
     if (timer) {
       clearInterval(timer);
       timer = null;
+      startTimerBtn.textContent = "start";
     }
 
     if (b_timer) return;
@@ -76,7 +103,7 @@ addEventListener("DOMContentLoaded", () => {
       clearInterval(timer);
       if (break_sec === 0) {
         if (break_min === 0) {
-          playBell;
+          playBell();
           clearInterval(b_timer);
           b_timer = null;
           alert("break finished");

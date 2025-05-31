@@ -80,21 +80,21 @@ body {
 
   background-color: rgba(128, 128, 128, 0.5);
 }
-.box1,.box4{
-  cursor:default;
+.box1,
+.box4 {
+  cursor: default;
 }
 .box1 {
   font-family: timerFont;
-  font-size:350px;
+  font-size: 350px;
   animation: boxDelay 0.5s ease-in-out;
   background-color: var(--base-color);
   color: var(--timertext-color);
   /* margin: 10px; */
   border-radius: 5px 100px 100px;
   animation-delay: 0.1s;
-  
-  text-align: start;
 
+  text-align: start;
 }
 
 .box2 {
@@ -127,7 +127,7 @@ body {
   /* margin: 10px; */
   animation-delay: 0.1s;
   border-radius: 100px 100px 0px 100px;
-  
+
   text-align: start;
 }
 
@@ -180,31 +180,35 @@ body {
   grid-template-rows: repeat(2, 400px);
 }
 
-.theme-container {
+.bottom-container {
   position: fixed;
-
+  /* background-color: #0eb1d2; */
   z-index: 999;
 
   bottom: 0;
-  margin: 0;
+
   right: 0;
   height: 100px;
   /* backdrop-filter: blur(10px); */
   width: 100vw;
   /* border: 1px solid red; */
   display: flex;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
 }
-#theme-toggle {
+.bottom-elements {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  background-color: #dfdfdf;
+  border-radius: 50% 50% 0% 0%;
+  width: 35rem;
+  height: 5rem;
+
   padding: 10px;
-  width: 150px;
-  font-family: btnFont;
-  background: transparent;
-  backdrop-filter: blur(10px);
-  color: var(--normaltext-color);
-  border: none;
-  font-size: 28px;
+  margin-top: 20px;
 }
 
 @media (max-width: 1780px) {
@@ -217,7 +221,6 @@ body {
 
     border-radius: 100px;
   }
-  
 
   .grid-container {
     grid-template-rows: repeat(2, 300px);
@@ -236,6 +239,11 @@ body {
     align-items: center;
     text-align: center;
   }
+  .box1,
+  .box4 {
+    padding: 50px;
+  }
+
   .box2 button,
   .box3 button {
     font-size: 100px;

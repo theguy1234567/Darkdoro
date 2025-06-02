@@ -12,12 +12,16 @@
   --secondary-color: #799496;
   --timertext-color: #f79d5c;
   --normaltext-color: whitesmoke;
+  --button-color: gray;
+  --bottome-container: #1a1a1a;
 }
 .white-mode {
   --base-color: #0c1821;
   --secondary-color: #0eb1d2;
   --timertext-color: #ffeb36;
   --normaltext-color: whitesmoke;
+  --button-color: #0c1821;
+  --bottome-container: #006ef5;
   background-image: url("secondary.jpg");
 }
 
@@ -37,8 +41,8 @@
   padding: 0;
 }
 body {
+  position: relative;
   display: flex;
-
   justify-content: center;
   align-items: center;
   height: 100vh;
@@ -67,6 +71,7 @@ body {
 
 .container {
   /* border: 1px solid blue; */
+
   min-height: 100vh;
 }
 .nav-bar {
@@ -164,6 +169,7 @@ body {
 
 .app-container {
   /* margin: 50px 0px; */
+
   height: 85vh;
   width: 100vw;
   /* border: 1px solid blue; */
@@ -183,10 +189,8 @@ body {
 .bottom-container {
   position: fixed;
   /* background-color: #0eb1d2; */
-  z-index: 999;
-
+  /* z-index: 999; */
   bottom: 0;
-
   right: 0;
   height: 100px;
   /* backdrop-filter: blur(10px); */
@@ -197,12 +201,53 @@ body {
   justify-content: center;
   align-items: center;
 }
+.time-elements {
+  z-index: 999;
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.5s ease;
+  background-color: transparent;
+  backdrop-filter: blur(10px);
+  display: flex;
+  border-radius: 10%;
+  padding: 10px;
+  flex-direction: column;
+
+  opacity: 0;
+  align-items: center;
+  transition: all 0.5s ease-in-out;
+}
+.time-elements button {
+  font-family: btnFont;
+
+  border-radius: 5px;
+  border: none;
+  margin: 5px;
+  padding: 10px;
+}
+.cont {
+  position: absolute;
+  /* background-color: red; */
+  height: 400px;
+  width: 200px;
+
+  z-index: -1;
+}
+.time-elements.show {
+  opacity: 1;
+
+  max-height: 500px; /* Adjust based on your content */
+}
+
 .bottom-elements {
+  font-family: btnFont;
+
+  position: relative;
   display: flex;
   flex-direction: row;
   justify-content: center;
   align-items: center;
-  background-color: #dfdfdf;
+  background-color: var(--bottome-container);
   border-radius: 50% 50% 0% 0%;
   width: 35rem;
   height: 5rem;
@@ -211,6 +256,60 @@ body {
   margin-top: 20px;
 }
 
+#theme-toggle {
+  width: 200px;
+  height: 50px;
+  border-radius: 5px;
+  border: none;
+  background-color: var(--button-color);
+  color: white;
+  font-family: btnFont;
+  font-size: 35px;
+  text-align: center;
+}
+#revealtimeelem {
+  font-family: btnFont;
+  font-size: 20px;
+  margin: 15px;
+  border-radius: 100%;
+  height: 60px;
+  text-align: center;
+  width: 60px;
+  border: none;
+  background-color: var(--button-color);
+  color: white;
+}
+#sessioncounter {
+  margin: 15px;
+  border-radius: 100%;
+  height: 60px;
+  text-align: center;
+  width: 60px;
+  border: none;
+  background-color: var(--button-color);
+  color: white;
+  font-size: 50px;
+}
+.wrapper {
+  font-size: 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.tipsmenue {
+  opacity: 0;
+  position: absolute;
+  z-index: 1000;
+  backdrop-filter: blur(10px);
+  border-radius: 5px;
+  transition: all 1s ease-in-out;
+  padding: 20px;
+  height: 500px;
+  width: 500px;
+  background-color: #006ef5;
+}
 @media (max-width: 1780px) {
   .box1,
   .box2,
@@ -253,6 +352,19 @@ body {
   }
 }
 @media (max-width: 550px) {
+
+
+  .tipsmenue{
+    text-align: center;
+    width: 350px;
+  }
+
+
+  
+
+
+
+
   .grid-container {
     grid-template-columns: repeat(1, 1fr);
     grid-template-rows: repeat(4, 200px);

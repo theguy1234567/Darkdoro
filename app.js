@@ -6,8 +6,14 @@ addEventListener("DOMContentLoaded", () => {
   const toggleThemeBtn = document.getElementById("theme-toggle");
   const minSel = document.querySelectorAll(".timeSelector");
   const sessionCountDisplay = document.getElementById("sessioncounter");
+  const dismissbtn = document.getElementById("dissmiss");
 
   const timerBell = new Audio("bell.mp3");
+  const timeSelector = document.getElementById("revealtimeelem");
+
+  setTimeout(() => {
+    DisplaytipsMenue();
+  }, 5000);
 
   //timer logic
   let minutes = 0;
@@ -111,7 +117,7 @@ addEventListener("DOMContentLoaded", () => {
             alert("session completed");
             s_count += 1;
             console.log(s_count);
-            sessionCountDisplay.innerHTML = `Counter:${s_count}`;
+            sessionCountDisplay.innerHTML = `${s_count}`;
 
             minutes = 0;
             seconds = 10;
@@ -147,6 +153,21 @@ addEventListener("DOMContentLoaded", () => {
     timerBell.play();
   }
 
+  function revealCont() {
+    const container = document.getElementById("timeelements");
+    container.classList.toggle("show");
+  }
+  function DisplaytipsMenue() {
+    const menueCont = document.getElementById("tipsmen");
+    menueCont.style.opacity = "1";
+  }
+
+  dismissbtn.addEventListener("click", () => {
+    const menueCont = document.getElementById("tipsmen");
+    menueCont.style.opacity = "0";
+    menueCont.style.display = "none";
+  });
+
   startTimerBtn.addEventListener("click", startTimer);
   renderTime();
 
@@ -154,6 +175,8 @@ addEventListener("DOMContentLoaded", () => {
   renderB_Time();
 
   toggleThemeBtn.addEventListener("click", changeTheme);
+
+  timeSelector.addEventListener("click", revealCont);
 
   // logic to set min in the timer
   minSel.forEach((button) => {
@@ -164,6 +187,8 @@ addEventListener("DOMContentLoaded", () => {
       seconds = 0;
       renderTime();
       console.log(`timer set to ${min}`);
+      const container = document.getElementById("timeelements");
+      container.classList.remove("show");
     });
   });
 });

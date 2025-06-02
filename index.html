@@ -7,6 +7,20 @@
     <link rel="stylesheet" href="style.css" />
   </head>
   <body>
+    <div id="tipsmen" class="tipsmenue">
+      <div class="wrapper">
+        <h1>Tips</h1>
+        <ul>
+          <li>Dont like the dark mode? chnage it with the toggle theme btn</li>
+          <li>You can set the timer values with the setting button</li>
+          <li>The zero at the bottom corner counts your sesions</li>
+          <li>If you'r on a Phone try using it in the landscape</li>
+          <li>Note:This is a beta version and bugs are to be expected</li>
+        </ul>
+        <button id="dissmiss" >dissmiss this crap</button>
+      </div>
+    </div>
+
     <div class="container">
       <div class="app-container">
         <div class="grid-container">
@@ -21,16 +35,22 @@
         </div>
       </div>
     </div>
+
     <div class="bottom-container">
       <div class="bottom-elements">
-        <button class="timeSelector" data-minutes="15">15:00</button>
-        <button class="timeSelector" data-minutes="25">25:00</button>
+        <div class="cont">
+          <div id="timeelements" class="time-elements">
+            <button class="timeSelector" data-minutes="15">15:00</button>
+            <button class="timeSelector" data-minutes="25">25:00</button>
+            <button class="timeSelector" data-minutes="45">45:00</button>
+          </div>
+        </div>
+        <button id="revealtimeelem">settings</button>
         <button id="theme-toggle">Toggle Theme</button>
-        <button class="timeSelector" data-minutes="45">45:00</button>
-        <div id="sessioncounter">Count:</div>
+        <div id="sessioncounter">0</div>
       </div>
     </div>
-    
+
     <script src="app.js"></script>
   </body>
 </html>

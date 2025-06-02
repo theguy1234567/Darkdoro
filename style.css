@@ -297,19 +297,38 @@ body {
   justify-content: center;
   align-items: center;
 }
+.wrapper h1 {
+  font-family: btnFont;
+  margin-bottom: 1.5rem;
+}
+.wrapper ul {
+  list-style: none;
+  line-height: 2.5rem;
+}
+.wrapper button {
+  font-family: btnFont;
+  margin-top: 20px;
+  border-radius: 5px;
+  border: none;
+  padding: 10px;
+}
 
 .tipsmenue {
+  color: var(--normaltext-color);
   opacity: 0;
   position: absolute;
+  top: 100px;
   z-index: 1000;
   backdrop-filter: blur(10px);
   border-radius: 5px;
   transition: all 1s ease-in-out;
   padding: 20px;
-  height: 500px;
+  height: 350px;
   width: 500px;
-  background-color: #006ef5;
+  background-color: rgba(0, 0, 0, 0.541);
+  backdrop-filter: blur(20px);
 }
+
 @media (max-width: 1780px) {
   .box1,
   .box2,
@@ -352,19 +371,23 @@ body {
   }
 }
 @media (max-width: 550px) {
-
-
-  .tipsmenue{
+  .tipsmenue {
     text-align: center;
+    height: 600px;
     width: 350px;
   }
 
-
-  
-
-
-
-
+  .box1,
+  .box4 {
+    padding: 10px;
+    font-size: 60px;
+  }
+  .box2 button,
+  .box3 button {
+    font-size: 100px;
+    height: 170px;
+    width: 350px;
+  }
   .grid-container {
     grid-template-columns: repeat(1, 1fr);
     grid-template-rows: repeat(4, 200px);

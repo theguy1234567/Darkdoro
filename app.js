@@ -164,7 +164,7 @@ addEventListener("DOMContentLoaded", () => {
 
   dismissbtn.addEventListener("click", () => {
     const menueCont = document.getElementById("tipsmen");
-    menueCont.style.opacity = "0";
+    // menueCont.style.opacity = "0";
     menueCont.style.display = "none";
   });
 

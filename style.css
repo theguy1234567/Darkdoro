@@ -371,6 +371,12 @@ body {
   }
 }
 @media (max-width: 550px) {
+  .grid-container{
+    grid-template-columns: repeat(1,1fr);
+    grid-template-rows: repeat(4,200px);
+    justify-content: center;
+    
+  }
   .tipsmenue {
     text-align: center;
     height: 600px;
@@ -385,7 +391,8 @@ body {
   .box2 button,
   .box3 button {
     font-size: 100px;
-    height: 170px;
+    
+    height: 200px;
     width: 350px;
   }
   .grid-container {

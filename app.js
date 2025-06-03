@@ -19,8 +19,8 @@ addEventListener("DOMContentLoaded", () => {
   let minutes = 0;
   let seconds = 10;
   let timer = null;
-  let break_min = 0;
-  let break_sec = 10;
+  let break_min = 10;
+  let break_sec = 0;
   let b_timer = null;
   let s_count = 0;
 
@@ -77,8 +77,8 @@ addEventListener("DOMContentLoaded", () => {
             sessionCountDisplay.innerHTML = `Counter:${s_count}`;
             minutes = 0;
             seconds = 10;
-            break_min = 0;
-            break_sec = 10;
+            break_min = 15;
+            break_sec = 0;
             renderB_Time();
             renderTime();
             startTimerBtn.textContent = "start";

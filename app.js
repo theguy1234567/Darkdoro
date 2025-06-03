@@ -15,7 +15,6 @@ addEventListener("DOMContentLoaded", () => {
     DisplaytipsMenue();
   }, 5000);
 
-  //timer logic
   let minutes = 0;
   let seconds = 10;
   let timer = null;
@@ -23,7 +22,7 @@ addEventListener("DOMContentLoaded", () => {
   let break_sec = 0;
   let b_timer = null;
   let s_count = 0;
-
+  //functions to render and display time on the DOM
   function renderTime() {
     let m = minutes.toString().padStart(2, "0");
     let s = seconds.toString().padStart(2, "0");
@@ -35,7 +34,7 @@ addEventListener("DOMContentLoaded", () => {
     let b_s = break_sec.toString().padStart(2, "0");
     breakTimerDisplay.textContent = `${b_m}:${b_s}`;
   }
-
+  //timer logic
   function startTimer() {
     if (startTimerBtn.textContent === "start") {
       startTimerBtn.textContent = "pause";
@@ -95,7 +94,7 @@ addEventListener("DOMContentLoaded", () => {
       renderTime();
     }, 1000);
   }
-
+  // break timer logic
   function startBreakTimer() {
     if (timer) {
       clearInterval(timer);
@@ -140,6 +139,7 @@ addEventListener("DOMContentLoaded", () => {
       renderB_Time();
     }, 1000);
   }
+  //func to change  theme
   function changeTheme() {
     const body = document.body;
     body.classList.add("fade");
@@ -152,14 +152,10 @@ addEventListener("DOMContentLoaded", () => {
   function playBell() {
     timerBell.play();
   }
-
+  // function to display the tips menue
   function revealCont() {
     const container = document.getElementById("timeelements");
     container.classList.toggle("show");
-  }
-  function DisplaytipsMenue() {
-    const menueCont = document.getElementById("tipsmen");
-    menueCont.style.opacity = "1";
   }
 
   dismissbtn.addEventListener("click", () => {

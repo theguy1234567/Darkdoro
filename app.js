@@ -13,7 +13,7 @@ addEventListener("DOMContentLoaded", () => {
 
   setTimeout(() => {
     DisplaytipsMenue();
-  }, 5000);
+  }, 2000);
 
   let minutes = 0;
   let seconds = 10;
@@ -160,9 +160,17 @@ addEventListener("DOMContentLoaded", () => {
 
   dismissbtn.addEventListener("click", () => {
     const menueCont = document.getElementById("tipsmen");
-    // menueCont.style.opacity = "0";
-    menueCont.style.display = "none";
+    menueCont.style.opacity = "0";
+    // menueCont.style.display = "none";
+    setTimeout(() => {
+      menueCont.style.display = "none";
+    }, 2000);
   });
+
+  function DisplaytipsMenue() {
+    const menueCont = document.getElementById("tipsmen");
+    menueCont.style.opacity = "1";
+  }
 
   startTimerBtn.addEventListener("click", startTimer);
   renderTime();

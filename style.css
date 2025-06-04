@@ -314,6 +314,7 @@ body {
 }
 
 .tipsmenue {
+  cursor: default;
   color: var(--normaltext-color);
   opacity: 0;
   position: absolute;
@@ -371,11 +372,10 @@ body {
   }
 }
 @media (max-width: 550px) {
-  .grid-container{
-    grid-template-columns: repeat(1,1fr);
-    grid-template-rows: repeat(4,200px);
+  .grid-container {
+    grid-template-columns: repeat(1, 1fr);
+    grid-template-rows: repeat(4, 200px);
     justify-content: center;
-    
   }
   .tipsmenue {
     text-align: center;
@@ -391,7 +391,7 @@ body {
   .box2 button,
   .box3 button {
     font-size: 100px;
-    
+
     height: 200px;
     width: 350px;
   }

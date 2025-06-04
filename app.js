@@ -28,7 +28,6 @@ addEventListener("DOMContentLoaded", () => {
     let s = seconds.toString().padStart(2, "0");
     timerDisplay.textContent = `${m}:${s}`;
   }
-
   function renderB_Time() {
     let b_m = break_min.toString().padStart(2, "0");
     let b_s = break_sec.toString().padStart(2, "0");

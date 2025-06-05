@@ -81,7 +81,6 @@ addEventListener("DOMContentLoaded", () => {
             renderTime();
             startTimerBtn.textContent = "start";
           }
-
           startBreakTimer();
           return;
         }

@@ -312,7 +312,6 @@ body {
   border: none;
   padding: 10px;
 }
-
 .tipsmenue {
   cursor: default;
   color: var(--normaltext-color);
@@ -329,7 +328,6 @@ body {
   background-color: rgba(0, 0, 0, 0.541);
   backdrop-filter: blur(20px);
 }
-
 @media (max-width: 1780px) {
   .box1,
   .box2,
